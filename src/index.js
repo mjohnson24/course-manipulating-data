@@ -16,7 +16,11 @@ const filterFunction = (company) => {
 const mappedFunction = function(arg) {
 	return {city: arg.fieldData.City, name: arg.fieldData.CompanyName};
 };
-const manipulatedData = companiesData.map(mappedFunction);
+const updateEachElement = (company) => {
+	company.fieldData.CityState = `${company.fieldData.City}, ${company.fieldData.State}`;
+};
+companiesData.forEach(updateEachElement);
+const manipulatedData = [];
 
 //TODO: add the manipulated data array to the 'after' div.
 before.innerHTML = JSON.stringify(companiesData, null, 2);
