@@ -19,8 +19,8 @@ const mappedFunction = function(arg) {
 const updateEachElement = (company) => {
 	company.fieldData.CityState = `${company.fieldData.City}, ${company.fieldData.State}`;
 };
-companiesData.forEach(updateEachElement);
-const manipulatedData = [];
+// companiesData.forEach(updateEachElement);
+const manipulatedData = [...new Set ( companiesData.map ( (e) => { return e.fieldData.State}))].sort(); // removes duplicates. The (...) will append the data to the array. (Set) will remove duplicates.
 
 //TODO: add the manipulated data array to the 'after' div.
 before.innerHTML = JSON.stringify(companiesData, null, 2);
