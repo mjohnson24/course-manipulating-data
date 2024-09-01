@@ -13,8 +13,10 @@ const filterFunction = (company) => {
 	console.log(company);
 	return company.fieldData.State === "TX";
 }
-
-const manipulatedData = companiesData.filter(filterFunction); // filters the data based on the condition for data with a state of texas or florida
+const mappedFunction = function(arg) {
+	return {city: arg.fieldData.City, name: arg.fieldData.CompanyName};
+};
+const manipulatedData = companiesData.map(mappedFunction);
 
 //TODO: add the manipulated data array to the 'after' div.
 before.innerHTML = JSON.stringify(companiesData, null, 2);
