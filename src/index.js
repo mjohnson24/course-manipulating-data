@@ -1,5 +1,6 @@
 import { companiesData } from "./companies-data";
 import { extraRecord } from "./extra-record";
+import { filterFunction, mappedFunction, updateEachElement } from "./utils";
 
 const before = document.getElementById("before");
 
@@ -9,16 +10,7 @@ const before = document.getElementById("before");
 // const manipulatedData = companiesData.push(extraRecord); // adds an element to the end
 // const manipulatedData = companiesData.unshift(extraRecord); // adds an element to the beginning
 
-const filterFunction = (company) => {
-	console.log(company);
-	return company.fieldData.State === "TX";
-}
-const mappedFunction = function(arg) {
-	return {city: arg.fieldData.City, name: arg.fieldData.CompanyName};
-};
-const updateEachElement = (company) => {
-	company.fieldData.CityState = `${company.fieldData.City}, ${company.fieldData.State}`;
-};
+
 // companiesData.forEach(updateEachElement);
 // const manipulatedData = [...new Set ( companiesData.map ( (e) => { return e.fieldData.State}))].sort(); // removes duplicates. The (...) will append the data to the array. (Set) will remove duplicates.
 
